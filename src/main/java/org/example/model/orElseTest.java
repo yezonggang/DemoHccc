@@ -12,5 +12,6 @@ public class orElseTest {
         System.out.println(op3);
         String op4 = Optional.ofNullable("222").orElseGet(() -> "hao");
         System.out.println(op4);
+
     }
 }
