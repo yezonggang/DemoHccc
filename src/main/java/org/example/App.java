@@ -6,6 +6,8 @@ import org.example.model.Teacher;
 import org.example.service.TeacherServiceImpl;
 import org.example.service.TeacherServiceI2mpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
@@ -18,6 +20,9 @@ import static java.util.concurrent.CompletableFuture.completedFuture;
  * Hello world!
  *
  */
+
+@SpringBootApplication
+@ConfigurationProperties("classpath:/application.properties")
 public class App {
 
 
