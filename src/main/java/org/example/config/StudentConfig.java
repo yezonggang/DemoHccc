@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 public class StudentConfig {
     @Primary
     @Bean(name="studentDataSource")
-    @ConfigurationProperties("spring.datasource.student")
+    @ConfigurationProperties("spring.datasource.druid.student")
     public DataSource studentDataSource(){return DruidDataSourceBuilder.create().build();}
 
     @Primary
