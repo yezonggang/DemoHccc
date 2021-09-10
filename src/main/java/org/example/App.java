@@ -6,6 +6,7 @@ import org.example.model.Teacher;
 import org.example.service.TeacherServiceImpl;
 import org.example.service.TeacherServiceI2mpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -21,8 +22,6 @@ import static java.util.concurrent.CompletableFuture.completedFuture;
  *
  */
 
-@SpringBootApplication
-@ConfigurationProperties("classpath:/application.properties")
 public class App {
 
 
@@ -102,6 +101,7 @@ public class App {
         System.out.println(maxID);
 
 
+
         // groupby转化
         Map<String, List<Student>> list6 = t1.getStudentList().stream()
                 .filter(student -> !student.getName().isEmpty())
@@ -109,11 +109,10 @@ public class App {
 
         System.out.println(list6);
 
-        System.out.println(test());
     }
 
-    // 异步编程链路
-    public static CompletableFuture<String> test(){
+        // 异步编程链路
+    public static CompletableFuture<String> test() throws  Exception{
         return teacherService.getStudents()
                 .thenApplyAsync(students -> students.stream()
                 .filter(i->i.getName().contains("s"))
